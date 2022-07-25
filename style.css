@@ -42,19 +42,27 @@ nav img {
   height: 50px;
 }
 
-main {
+.flexy {
   background-color: var(--myWhite);
+  display: flex;
+  align-items: center;
+}
+
+main {
+  flex: 1;
   color: black;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
   grid-auto-rows: 250px;
   justify-content: center;
+  gap: 40px;
 }
 
 main > div {
   border: solid black;
-  gap: 40px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
