@@ -1,3 +1,10 @@
+:root {
+  --myBlue: rgb(8, 217, 214);
+  --myDark: rgb(37, 42, 52);
+  --myPink: rgb(255, 46, 99);
+  --myWhite: rgb(234, 234, 234);
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -7,7 +14,7 @@
 
 html {
     height: 100%;
-    background-color: grey;
+    color: var(--myWhite);
 }
 
 body {
@@ -23,13 +30,59 @@ body {
 }
 
 nav {
-  border: solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--myPink);
+  font-size: 1.8rem;
+}
+
+nav img {
+  height: 50px;
 }
 
 main {
-  border: solid blue;
+  background-color: var(--myWhite);
+  color: black;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+  grid-auto-rows: 250px;
+  justify-content: center;
+}
+
+main > div {
+  border: solid black;
+  gap: 40px;
+
 }
 
 footer {
-  border: solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--myPink);
+}
+
+footer img {
+  width: 100px;
+}
+
+footer img:hover {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
