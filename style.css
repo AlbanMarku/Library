@@ -5,7 +5,31 @@
     font-family: 'Roboto', sans-serif;
   }
 
-body, html {
+html {
     height: 100%;
-    color: red;
+    background-color: grey;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 100px;
+  height: 100%;
+}
+
+.wrap {
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  overflow: auto;
+}
+
+nav {
+  border: solid black;
+}
+
+main {
+  border: solid blue;
+}
+
+footer {
+  border: solid red;
 }
