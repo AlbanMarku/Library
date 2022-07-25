@@ -54,6 +54,7 @@ nav img {
   display: flex;
   align-items: center;
   padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 main {
@@ -66,11 +67,36 @@ main {
   gap: 40px;
 }
 
-main > div {
-  border: solid black;
+/* change the name later */
+.bookCard{
+  border-left: solid 10px var(--myPink);
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px var(--myDark);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttonArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.incrementBtn, .doneBtn {
+  background-color: red;
+  width: 30px;
+}
+
+.pageArea {
+  display: flex;
+  gap: 10px;
+}
+
+.interactBtn {
+  background-color: var(--myBlue);
 }
 
 footer {
