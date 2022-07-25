@@ -12,21 +12,21 @@ const buttonArea = document.createElement("div");
 const readButton = document.createElement("button");
 const removeButton = document.createElement("button");
 
-card.classList.add("bookCard");
-displayArea.appendChild(card);
-bookName.textContent = "lotr";
-card.appendChild(bookName);
-bookAuthor.textContent = "jrr";
-card.appendChild(bookAuthor);
+// card.classList.add("bookCard");
+// displayArea.appendChild(card);
+// bookName.textContent = "lotr";
+// card.appendChild(bookName);
+// bookAuthor.textContent = "jrr";
+// card.appendChild(bookAuthor);
 
-pageArea.classList.add("pageArea");
-card.appendChild(pageArea);
-sub1Btn.textContent = "-1";
-sub1Btn.classList.add("incrementBtn");
-pageArea.appendChild(sub1Btn);
-sub5Btn.textContent = "-5";
-sub5Btn.classList.add("incrementBtn");
-pageArea.appendChild(sub5Btn);
+// pageArea.classList.add("pageArea");
+// card.appendChild(pageArea);
+// sub1Btn.textContent = "-1";
+// sub1Btn.classList.add("incrementBtn");
+// pageArea.appendChild(sub1Btn);
+// sub5Btn.textContent = "-5";
+// sub5Btn.classList.add("incrementBtn");
+// pageArea.appendChild(sub5Btn);
 
 //and so on...
 

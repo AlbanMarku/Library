@@ -45,8 +45,15 @@ nav img {
   height: 50px;
 }
 
-.buttonArea {
+.addBookArea {
   background-color: var(--myWhite);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#addBookBtn {
+  background-color: red;
 }
 
 .flexy {
