@@ -188,8 +188,12 @@ main {
   gap: 10px;
 }
 
-.interactBtn {
+.readBtn {
   background-color: var(--myBlue);
+}
+
+.removeBtn {
+
 }
 
 footer {
