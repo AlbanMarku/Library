@@ -12,17 +12,39 @@
     <script src="mainScript.js" defer></script>
 </head>
 <body>
+    <div class="modal" id="modal">
+      <div class="modalHeader">
+        <div class="title">Example Modal</div>
+        <button id="closeBtn" data-close-Btn>&times;</button>
+      </div>
+      <div class="modalBody">
+        <form class="bookForm">
+            <h3>Add new book</h3>
+            <input class="textField" type="text" id="title" placeholder="Title" required>
+            <input class="textField" type="text" id="author" placeholder="Author" required>
+            <input class="textField" type="number" id="pages" placeholder="Total Pages" required>
+            <input class="textField" type="number" id="pagesRead" placeholder="Pages read (optional)">
+            <div class="isReadArea">
+                <label for="isRead">Have you read it?</label>
+                <input class="checkbox" type="checkbox" id="isRead"/>
+            </div>
+            <button id="submitBtn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div id="overlay"></div>
+    
     <div class="wrap">
         <nav>
             <img src="pics/book.svg" alt="Website book logo">
             <h1>My Library</h1>
         </nav>
         <div class="addBookArea">
-            <button id="addBookBtn">Add Book</button>
+            <button data-modal-target="#modal" id="addBookBtn">Add Book</button>
         </div>
         <div class="flexy">
             <main>
-                <!-- <div class="bookCard">
+                <div class="bookCard">
                     <h2>title</h2>
                     <h3>author</h3>
                     <div class="pageArea">
@@ -38,7 +60,7 @@
                         <button class="interactBtn">read</button>
                         <button class="interactBtn">remove</button>
                     </div>
-                </div> -->
+                </div>
             </main>
         </div>
 
