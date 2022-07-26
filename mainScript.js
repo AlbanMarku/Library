@@ -6,12 +6,16 @@ const modal = document.getElementById("modal");
 const form = document.querySelector("form");
 
 let myLibrary = [];
+let objId = null;
 
 function Book(title, author, pages, pagesRead, isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+    this.id = ++objId;
+    console.log(this.id);
+
 
     if (pagesRead === null || pagesRead === "") {
         this.pagesRead = 0;
@@ -32,11 +36,10 @@ function getBook() {
 
 function addToLibrary(newBook) {
     myLibrary.push(newBook);
-    clearGrid();
-    addLibraryToGrid();
+    createCardForBook(newBook);
 }
 
-function addLibraryToGrid() {
+function refreshGrid() {
     for (let selectedBook of myLibrary) {
         createCardForBook(selectedBook);
     }
@@ -93,6 +96,13 @@ function createCardForBook(book) {
     removeButton.classList.add("removeBtn");
     buttonArea.appendChild(removeButton);
 
+
+    removeButton.onclick = () => {
+        let index = myLibrary.findIndex((element) => element.id === book.id);
+        myLibrary.splice(index, 1);
+        clearGrid();
+        refreshGrid();
+    };
 }
 
 function clearGrid() {
