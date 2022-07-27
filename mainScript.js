@@ -38,6 +38,25 @@ Book.prototype.checkStatus = function () {
     }
 }
 
+Book.prototype.removeSelectedBook = function () {
+    let index = myLibrary.findIndex((element) => element.id === this.id);
+    myLibrary.splice(index, 1);
+}
+
+Book.prototype.subtractPages = function (amount) {
+    this.pagesRead -= amount;
+    if(this.pagesRead < 0) {
+        this.pagesRead = 0;
+    }
+}
+
+Book.prototype.addPages = function (amount) {
+    this.pagesRead += amount;
+    if (this.pagesRead > this.pages) {
+        this.pagesRead = this.pages;
+    }
+}
+
 function getBook() {
     const titleInput = document.getElementById("title").value;
     const authorInput = document.getElementById("author").value;
@@ -122,59 +141,42 @@ function createCardForBook(book) {
 
 
     removeButton.onclick = () => {
-        removeSelectedBook(book);
+        book.removeSelectedBook();
         refreshGrid();
     }
 
     sub5Btn.onclick = () => {
-        subtractPages(book, 5);
+        book.subtractPages(5);
         refreshGrid();
     }
 
     sub1Btn.onclick = () => {
-        subtractPages(book, 1);
+        book.subtractPages(1);
         refreshGrid();
     }
 
     add1Btn.onclick = () => {
-        addPages(book, 1);
+        book.addPages(1);
         refreshGrid();
     }
 
     add5Btn.onclick = () => {
-        addPages(book, 5);
+        book.addPages(5);
         refreshGrid();
     }
 
     readButton.onclick = () => {
-        if(book.isRead) {
-            book.pagesRead -= 1;
-            book.checkStatus();
-            refreshGrid();
-        } else {
-            book.pagesRead = book.pages;
-            book.checkStatus();
-            refreshGrid();
-        }
+        readBtnPressed(book);
+        book.checkStatus();
+        refreshGrid();
     }
 }
 
-function removeSelectedBook(selectedBook) {
-    let index = myLibrary.findIndex((element) => element.id === selectedBook.id);
-    myLibrary.splice(index, 1);
-}
-
-function subtractPages(selectedBook, amount) {
-    selectedBook.pagesRead -= amount;
-    if (selectedBook.pagesRead < 0) {
-        selectedBook.pagesRead = 0;
-    }
-}
-
-function addPages(selectedBook, amount) {
-    selectedBook.pagesRead += amount;
-    if (selectedBook.pagesRead > selectedBook.pages) {
-        selectedBook.pagesRead = selectedBook.pages;
+function readBtnPressed(book) {
+    if(book.isRead) {
+        book.pagesRead -= 1;
+    } else {
+        book.pagesRead = book.pages;
     }
 }
 
