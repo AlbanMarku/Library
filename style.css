@@ -170,6 +170,11 @@ main {
   gap: 20px;
 }
 
+.bookCard.activate {
+  border-left: solid 10px var(--myBlue);
+
+}
+
 .buttonArea {
   display: flex;
   flex-direction: column;

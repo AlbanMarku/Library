@@ -28,13 +28,28 @@ function Book(title, author, pages, pagesRead, isRead) {
     }
 }
 
+Book.prototype.checkStatus = function () {
+    if((this.pagesRead === this.pages)) {
+        this.isRead = true;
+        return true
+    } else {
+        this.isRead = false;
+        return false
+    }
+}
+
 function getBook() {
     const titleInput = document.getElementById("title").value;
     const authorInput = document.getElementById("author").value;
-    const pagesInput = document.getElementById("pages").value;
+    let pagesInput = document.getElementById("pages").value;
+    pagesInput = parseInt(pagesInput);
     let pagesReadInput = document.getElementById("pagesRead").value;
     pagesReadInput = parseInt(pagesReadInput);
     const isReadInput = document.getElementById("isRead").checked;
+
+    if(isReadInput) {
+        pagesReadInput = pagesInput;
+    }
 
     return new Book(titleInput,authorInput,pagesInput,pagesReadInput,isReadInput)
 }
@@ -67,6 +82,9 @@ function createCardForBook(book) {
     const removeButton = document.createElement("button");
 
     card.classList.add("bookCard");
+    if (book.checkStatus()) {
+        card.classList.add("activate");
+    }
     displayArea.appendChild(card);
     bookName.textContent = `${book.title}`;
     card.appendChild(bookName);
@@ -119,7 +137,6 @@ function createCardForBook(book) {
     }
 
     add1Btn.onclick = () => {
-        console.log(book.pagesRead);
         addPages(book, 1);
         refreshGrid();
     }
@@ -127,6 +144,18 @@ function createCardForBook(book) {
     add5Btn.onclick = () => {
         addPages(book, 5);
         refreshGrid();
+    }
+
+    readButton.onclick = () => {
+        if(book.isRead) {
+            book.pagesRead -= 1;
+            book.checkStatus();
+            refreshGrid();
+        } else {
+            book.pagesRead = book.pages;
+            book.checkStatus();
+            refreshGrid();
+        }
     }
 }
 
