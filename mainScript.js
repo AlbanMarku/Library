@@ -5,12 +5,6 @@ const overlay = document.getElementById("overlay");
 const modal = document.getElementById("modal");
 const form = document.querySelector("form");
 
-//TODO:
-//Button increment
-//status to read
-//Update card to show these
-//Style
-
 let myLibrary = [];
 let objId = null;
 
@@ -127,7 +121,7 @@ function createCardForBook(book) {
 
     numberArea.classList.add("numberArea");
     card.appendChild(numberArea);
-    numberDisplay.textContent = `${book.pagesRead}/${book.pages}`;
+    numberDisplay.textContent = `Pages: ${book.pagesRead}/${book.pages}`;
     numberArea.appendChild(numberDisplay);
 
     buttonArea.classList.add("buttonArea");

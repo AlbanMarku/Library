@@ -31,7 +31,6 @@ body {
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
   width: 500px;
-  /* border: solid var(--myDark); */
   z-index: 10;
   border-radius: var(--modalBorderRad);
 }
@@ -87,8 +86,78 @@ body {
   gap: 20px;
 }
 
+.textField {
+  padding: 10px;
+}
+
+#addBookBtn {
+  background-color: var(--myPink);
+  padding: 20px 30px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
 #submitBtn {
   background-color: var(--myBlue);
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#submitBtn:active, #closeBtn:active, #addBookBtn:active {
+  transform: translateY(4px);
+}
+
+#submitBtn, #closeBtn, #addBookBtn {
+  cursor: pointer;
+  border-style: none;
+}
+
+#closeBtn {
+  background-color: var(--myBlue);
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.incrementBtn {
+  padding: 10px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: var(--myPink);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.numberArea {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.readBtn {
+  background-color: var(--myBlue);
+}
+
+.removeBtn {
+  background-color: var(--myPink);
+  color: white;
+}
+
+.readBtn, .removeBtn {
+  border-style: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 200px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.readBtn:active, .removeBtn:active, .incrementBtn:active {
+  transform: translateY(4px);
 }
 
 #overlay {
@@ -137,10 +206,6 @@ nav img {
   align-items: center;
 }
 
-#addBookBtn {
-  background-color: red;
-}
-
 .flexy {
   background-color: var(--myWhite);
   display: flex;
@@ -154,7 +219,7 @@ main {
   color: black;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
-  grid-auto-rows: 250px;
+  grid-auto-rows: 300px;
   justify-content: center;
   gap: 40px;
 }
@@ -167,7 +232,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .bookCard.activate {
@@ -181,22 +246,10 @@ main {
   gap: 10px;
 }
 
-.incrementBtn, .doneBtn {
-  background-color: red;
-  width: 30px;
-}
-
 .pageArea {
   display: flex;
   gap: 10px;
-}
-
-.readBtn {
-  background-color: var(--myBlue);
-}
-
-.removeBtn {
-  
+  margin: 20px 0px;
 }
 
 footer {
