@@ -31,7 +31,7 @@ body {
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
   width: 500px;
-  border: solid var(--myDark);
+  /* border: solid var(--myDark); */
   z-index: 10;
   border-radius: var(--modalBorderRad);
 }
@@ -42,14 +42,16 @@ body {
 }
 
 .modalHeader {
-  background-color: var(--myBlue);
-  color: black;
+  background-color: var(--myPink);
+  color: white;
   display: flex;
   justify-content: center;
   padding: 20px;
   border-top-left-radius: var(--modalBorderRad);
   border-top-right-radius: var(--modalBorderRad);
   border-bottom: solid var(--myDark);
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 #closeBtn {
@@ -59,8 +61,8 @@ body {
 }
 
 .modalBody {
-  background-color: var(--myWhite);
-  color: black;
+  background-color: var(--myDark);
+  color: white;
   border-bottom-left-radius: var(--modalBorderRad);
   border-bottom-right-radius: var(--modalBorderRad);
   display: flex;
@@ -76,9 +78,6 @@ body {
   gap: 20px;
   padding: 20px;
   width: 70%;
-}
-
-.textField {
 }
 
 .isReadArea {
@@ -160,7 +159,6 @@ main {
   gap: 40px;
 }
 
-/* change the name later */
 .bookCard{
   border-left: solid 10px var(--myPink);
   border-radius: 10px;
@@ -193,7 +191,7 @@ main {
 }
 
 .removeBtn {
-
+  
 }
 
 footer {

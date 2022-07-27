@@ -5,6 +5,12 @@ const overlay = document.getElementById("overlay");
 const modal = document.getElementById("modal");
 const form = document.querySelector("form");
 
+//TODO:
+//Button increment
+//status to read
+//Update card to show these
+//Style
+
 let myLibrary = [];
 let objId = null;
 
@@ -14,8 +20,6 @@ function Book(title, author, pages, pagesRead, isRead) {
     this.pages = pages;
     this.isRead = isRead;
     this.id = ++objId;
-    console.log(this.id);
-
 
     if (pagesRead === null || pagesRead === "") {
         this.pagesRead = 0;
@@ -28,7 +32,8 @@ function getBook() {
     const titleInput = document.getElementById("title").value;
     const authorInput = document.getElementById("author").value;
     const pagesInput = document.getElementById("pages").value;
-    const pagesReadInput = document.getElementById("pagesRead").value;
+    let pagesReadInput = document.getElementById("pagesRead").value;
+    pagesReadInput = parseInt(pagesReadInput);
     const isReadInput = document.getElementById("isRead").checked;
 
     return new Book(titleInput,authorInput,pagesInput,pagesReadInput,isReadInput)
@@ -40,6 +45,7 @@ function addToLibrary(newBook) {
 }
 
 function refreshGrid() {
+    clearGrid();
     for (let selectedBook of myLibrary) {
         createCardForBook(selectedBook);
     }
@@ -98,11 +104,49 @@ function createCardForBook(book) {
 
 
     removeButton.onclick = () => {
-        let index = myLibrary.findIndex((element) => element.id === book.id);
-        myLibrary.splice(index, 1);
-        clearGrid();
+        removeSelectedBook(book);
         refreshGrid();
-    };
+    }
+
+    sub5Btn.onclick = () => {
+        subtractPages(book, 5);
+        refreshGrid();
+    }
+
+    sub1Btn.onclick = () => {
+        subtractPages(book, 1);
+        refreshGrid();
+    }
+
+    add1Btn.onclick = () => {
+        console.log(book.pagesRead);
+        addPages(book, 1);
+        refreshGrid();
+    }
+
+    add5Btn.onclick = () => {
+        addPages(book, 5);
+        refreshGrid();
+    }
+}
+
+function removeSelectedBook(selectedBook) {
+    let index = myLibrary.findIndex((element) => element.id === selectedBook.id);
+    myLibrary.splice(index, 1);
+}
+
+function subtractPages(selectedBook, amount) {
+    selectedBook.pagesRead -= amount;
+    if (selectedBook.pagesRead < 0) {
+        selectedBook.pagesRead = 0;
+    }
+}
+
+function addPages(selectedBook, amount) {
+    selectedBook.pagesRead += amount;
+    if (selectedBook.pagesRead > selectedBook.pages) {
+        selectedBook.pagesRead = selectedBook.pages;
+    }
 }
 
 function clearGrid() {
